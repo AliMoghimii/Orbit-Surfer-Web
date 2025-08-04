@@ -1,0 +1,49 @@
+** To Run WebGL output **
+
+py -m http.server
+python -m http.server
+python3 -m http.server
+
+Ctrl + C to close
+
+** To adjust the default template to work in fullscreen + compatibility **
+
+https://www.youtube.com/watch?v=N07t-1vCAqc
+
+11.    
+	<div id="unity-container" style="width: 100%; height: 100%;"> 
+12.      
+	<canvas id="unity-canvas" width=auto height=auto tabindex="-1"></canvas>
+
+19~24. (comment)
+	<!-- <div id="unity-warning"> </div>
+      		<div id="unity-footer">
+       		 <div id="unity-logo-title-footer"></div>
+       		 <div id="unity-fullscreen-button"></div>
+       		 <div id="unity-build-title">Vista Cognition Training</div>
+      		</div> -->
+
+101.        
+	canvas.style.width = "100%";
+102.        
+	canvas.style.height = "100%";
+
+
+** Fixing output errors on webservers **
+
+1. Change Unity Compression Settings (Easiest Fix)
+You can disable or change the compression format in Unity:
+
+Go to File > Build Settings > WebGL > Player Settings.
+
+In the Publishing Settings section:
+
+Compression Format:
+
+Choose Disabled (for no compression, easiest for any server).
+
+Or choose Gzip if your server supports Gzip (.gz files).
+
+Use Brotli only if your server can handle it (you must configure it).
+
+Use “Disabled” if you don’t want to configure the server. The build will be larger, but guaranteed to work anywhere.
